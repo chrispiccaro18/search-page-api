@@ -11,14 +11,22 @@ header {
     align-items: center;
 }
 
-h1 {
+header h1 {
     margin-left: 20px;
+    flex-grow: 1;
+}
+
+#paging-section {
+    display: flex;
+    justify-content: center;
 }
 
 ul {
     display: flex;
     flex-flow: wrap;
+    justify-content: center;
     list-style-type: none;
+    padding: 0;
 }
 
 li {
@@ -27,13 +35,17 @@ li {
     align-items: center;
     border: 1px solid black;
     margin: 10px;
-    flex-basis: 25%;
+    flex-basis: 20%;
     min-width: 200px;
     background-color: darkgray;
 }
 
 li:hover {
     background-color: silver;
+}
+
+li h2 {
+    text-align: center;
 }
 
 li img {

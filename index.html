@@ -10,8 +10,20 @@
     <header>
         <img src="assets/alchemy-logo.png" alt="Alchemy Code Lab Logo">
         <h1>Rick and Morty API</h1>
+        <form id="search-form">
+                <input type="text" id="search-option">
+                <button>Show me what you got!</button>
+        </form>
     </header>
     <main>
+        <section id="paging-section">
+            <button>&lt; Previous</button>
+            <div>
+                Page <span id="current-page">1</span>
+                of <span id="total-pages">20</span>
+            </div>
+            <button>Next &gt;</button>
+        </section>
         <ul id="character-list">
             <li>
                 <h2>Rick Sanchez</h2>
