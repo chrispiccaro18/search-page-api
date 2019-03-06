@@ -1,20 +1,8 @@
+import { makeCharacterCard } from '../src/list-component.js';
+
 const test = QUnit.test;
 
 QUnit.module('Create list item');
-
-function makeCharacterCard(character) {
-    const html = /*html*/`
-        <li>
-            <h2>${character.name}</h2>
-            <img src="${character.image}" alt="Image of ${character.name}">
-            <p>Appears in ${character.episode.length} ${character.episode.length > 1 ? 'episodes' : 'episode'}</p>
-            <p>Status: ${character.status}</p>
-        </li>
-    `;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
 
 test('make character card', assert => {
     // arrange
@@ -22,6 +10,7 @@ test('make character card', assert => {
         <li>
             <h2>Rick Sanchez</h2>
             <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Image of Rick Sanchez">
+            <p id="species">Species: Human</p>
             <p>Appears in 31 episodes</p>
             <p>Status: Alive</p>
         </li>
@@ -74,44 +63,6 @@ test('make character card', assert => {
             'https://rickandmortyapi.com/api/episode/29',
             'https://rickandmortyapi.com/api/episode/30',
             'https://rickandmortyapi.com/api/episode/31'
-        ],
-        'url': 'https://rickandmortyapi.com/api/character/1',
-        'created': '2017-11-04T18:48:46.250Z'
-    };
-    // act
-    const result = makeCharacterCard(character);
-    // assert
-    assert.htmlEqual(result, expected);
-});
-
-test('make character card with one ep', assert => {
-    // arrange
-    const expected = /*html*/`
-        <li>
-            <h2>Rick Sanchez</h2>
-            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Image of Rick Sanchez">
-            <p>Appears in 1 episode</p>
-            <p>Status: Alive</p>
-        </li>
-    `;
-    const character = {
-        'id': 1,
-        'name': 'Rick Sanchez',
-        'status': 'Alive',
-        'species': 'Human',
-        'type': '',
-        'gender': 'Male',
-        'origin': {
-            'name': 'Earth (C-137)',
-            'url': 'https://rickandmortyapi.com/api/location/1'
-        },
-        'location': {
-            'name': 'Earth (Replacement Dimension)',
-            'url': 'https://rickandmortyapi.com/api/location/20'
-        },
-        'image': 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-        'episode': [
-            'https://rickandmortyapi.com/api/episode/1',
         ],
         'url': 'https://rickandmortyapi.com/api/character/1',
         'created': '2017-11-04T18:48:46.250Z'

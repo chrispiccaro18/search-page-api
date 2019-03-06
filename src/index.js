@@ -1,2 +1,4 @@
-// eslint-disable-next-line no-console
-console.log('hello JavaScript!');
+import testArray from '../data/test.js';
+import loadCharacterCards from './list-component.js';
+
+loadCharacterCards(testArray);
